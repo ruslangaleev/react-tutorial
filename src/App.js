@@ -20,7 +20,7 @@ export default function App() {
       <Link to='/users'>Users</Link>
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/users' component={Users} />
+        <Route exact path='/users' render={(props) => <Users {...props} title={'Заголовок пользователей'} />} />
         <Route exact path='/user/:userId' component={User}></Route>
         <Route exact path='/about' component={About} />
         <Route component={NotFound}/>
