@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   BrowserRouter as Router, // Вся логика роутинга
   Switch,
   Route, // указывает маршрут
-  Link // создает HTML ссылку на страницу. Проверяет роутер и роутер проверяет наличие роута, загружая компонент без перезагрузки страницы
+  Link, // создает HTML ссылку на страницу. Проверяет роутер и роутер проверяет наличие роута, загружая компонент без перезагрузки страницы
+  Redirect
 } from "react-router-dom";
 
 import Users from './components/Users';
@@ -20,6 +21,8 @@ export default function App() {
       <Link to='/users'>Users</Link>
       <Switch>
         <Route exact path='/' component={Home} />
+        {/* Редирект */}
+        {/* <Redirect from='/users' to='/about'></Redirect> */} 
         <Route exact path='/users' render={(props) => <Users {...props} title={'Заголовок пользователей'} />} />
         <Route exact path='/user/:userId' component={User}></Route>
         <Route exact path='/about' component={About} />
